@@ -47,7 +47,10 @@ pipeline {
         stage('Disk Usage') {
             steps {
                 echo 'Disk Usage'
-                sh 'df -h'
+                    script {
+                    def exitCode = sh(script: 'df -h', returnStatus: true)
+                    if (exitCode != 0) {
+                    echo 'df command failed'
             }
         }
         stage('Network Configuration') {
