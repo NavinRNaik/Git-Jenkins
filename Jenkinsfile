@@ -80,7 +80,7 @@ pipeline {
         stage('Environment Variables') {
             steps {
                 echo 'Environment Variables'
-                sh 'printenv'
+                sh 'pwd'
             }
         }
     }
